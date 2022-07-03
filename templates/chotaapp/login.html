@@ -1,0 +1,60 @@
+{% extends "chotaapp/base.html" %}
+{% block title %}
+{% endblock title %}
+
+
+
+
+{% block body %}<br>
+
+<style>
+    .er{
+        color:red
+    }
+
+    .float-child.green{
+    width: 40%;
+    float: left;
+    padding: 20px;
+    border: 2px solid black;
+    margin-right: 20px;
+    height:600px; 
+    margin-top: 10px;
+    background-color: rgb(201, 121, 183);
+    margin-left: 350px;
+      
+} 
+</style>
+<div class="float-container ">
+
+    <div class="float-child green">
+<form   action=""   method="POST"   style="margin-left: 55px;">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+     {% for error in form.non_field_errors %}
+       <p class="er">{{error}}</p>
+     {% endfor %}
+    {% endif %}
+    <form   action=""   method="POST"  novalidate  >
+        {% csrf_token %}
+        
+        {% for n in form %}
+         {{n.label_tag}} {{n}} {{n.errors|striptags}} <br><br>
+           
+        {% endfor %}
+        <input type="submit" style="margin-left: 130px;" value="submit">
+     </form>
+</form>
+    
+<div class="forgot float-right">
+    <a href="/accounts/password_reset/" id="/password_reset">Forgot Password?</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <a href="/signup" id="signup">Register here</a>
+</div>
+    
+        
+     
+    </div>
+</div>
+
+
+{% endblock body %}

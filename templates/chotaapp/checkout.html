@@ -1,0 +1,111 @@
+{% extends 'chotaapp/base.html' %}
+{% block title %} checkout {% endblock title %}
+{% block body %}
+<style>
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+.float-child.green{
+    width: 40%;
+    float: left;
+    padding: 20px;
+    border: 2px solid black;
+    margin-right: 20px;
+    height:1000px;
+    margin-top: 30px;
+    background-color: rgb(201, 121, 183);
+}
+
+
+  .float-child.blue{
+    width: 40%;
+    float: right;
+    padding: 20px;
+    border: 2px solid black;
+    margin-right: 20px;
+    margin-right: 100px;
+    margin-top: 30px;
+    height:600px;
+    background-color: rgb(201, 121, 183);
+} 
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="float-container ">
+
+      <div class="float-child green">
+          <a type="button" href ="/cartshow" class="btn btn-danger">Back To Cart</a> <hr>
+          <p>Order Summary</p><hr>
+
+          <form action="/paymentdone"    >
+          {% for quan in quant %}
+      
+          <p>Quantity:&nbsp{{quan.product.name}}&nbsp({{quan.quantity}})</p> 
+          <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Price:&#8377;{{quan.total_cost}} </p>
+          
+         
+          
+          {% endfor %} 
+          <hr><strong>Total Amount:&#8377;{{totalamount}}</strong></hr><br><hr>
+             
+          {% for da in dat %}
+          <h><strong>Shipping Address:&nbsp{{forloop.counter}}</strong></h><br><br>
+           <p>{{da.name}}</p>
+         
+           <p>{{da.address}}
+           ,{{da.district}}</p>
+           
+           <p>{{da.state}}</p>
+           <p>{{da.pincode}}</p><div class="form-check">
+            <input class="form-check-input" type="checkbox" value="{{da.id}}" id="custid" name="custid">
+            <label class="form-check-label" for="custadd{{forloop.counter}}">
+              Select Address&nbsp{{forloop.counter}}
+            </label>
+          </div><hr>
+           {% endfor %}<br>
+           <button type="submit"  value="Submit">Continue</button>
+
+
+          </form>
+        
+      </div>
+      
+
+
+
+
+
+
+      <div class="float-child blue">
+       <a href="#" > <h>UPI Payment:</h></a>
+          <center><img src="static/foodproducts/images_file/upii.jpg" width="300px" height="100px" ></center><hr>
+
+          <center>OR</center><hr>
+         <a href="#"> <h>Debit Card Payment:</h></a>
+       <center>  <img src="static/foodproducts/images_file/card.jpg" width="300px" height="100px" ></center> <hr>
+
+       <center>OR</center><hr>
+       <a href="#"><h>Paypal:</h></a>
+    <center>  <img src="static/foodproducts/images_file/paypal.png" width="300px" height="100px" ></center> <hr>
+
+    
+      
+      </div>
+</div>
+
+{% endblock body %}

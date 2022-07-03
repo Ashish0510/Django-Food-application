@@ -1,0 +1,66 @@
+{% extends 'chotaapp/base.html' %}
+{% block title %} Orderplaced {% endblock title %}
+{% block body %}
+
+<style>
+    .float-child.green{
+    width: 60%;
+    float: right;
+    padding: 20px;
+    border: 2px solid black;
+    margin-right: 150px;
+    height:500px;
+    margin-top: 10px;
+    background-color: rgb(201, 121, 183);
+    margin-left: 10px;
+    
+      
+  } 
+   
+  .float-child.blue{
+    width: 20%;
+    float: left;
+    padding: 20px;
+    border: 2px solid black;
+    margin-right: 20px;
+    height:200px;
+    margin-top: 10px;
+    background-color: rgb(201, 121, 183);
+    margin-left:0px;
+    
+      
+  } 
+  </style>
+
+<div class="float-container ">
+    
+    <div class="float-child blue">
+    <a type="button"  href="/profile" class="btn ">Profile</a><br>
+    <a type="button" href="/address" class="btn">Address</a><br>
+    <a type="button" href="/orders" class="btn btn-primary">My Orders</a>
+    </div>
+
+
+    <div class="float-child green">
+    <table class="table">
+        <thead>
+            <th>Items</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>status</th>
+        </thead>
+        {% for m in op %}
+        <tr>
+            <td>{{m.product.name}}</td>
+            <td>{{m.quantity}}</td>
+            <td>&#8377;{{m.total_price}}</td>
+            <td>{{m.status}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+
+
+
+
+{% endblock body %}

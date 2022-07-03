@@ -1,0 +1,103 @@
+{% extends "chotaapp/base.html" %}
+{% block title %} Non-Veg section   {% endblock title %}
+  
+{% block body %}
+<style class="text/css">
+  .sidenav{
+       height: 100%;
+       width: 100px;
+       position: fixed;
+       z-index: 1;
+       top: 70px;
+       left:0;
+       padding-top: 50px;
+       background-color: black;
+       display:grid;
+       font-size: larger;
+       font-style: italic;
+       font-stretch: normal;
+       
+       
+  }
+
+ .side{
+   text-align: left;
+ }
+ 
+ </style>
+ 
+ 
+ <div class="sidenav">  
+   <div class="side">
+                 
+       <a href="/" >Home</a><br>
+       <a href="/profile" >Profile </a><br>
+       <a href="#" >Category
+        <ul>
+          <a href="/nonveg"><li>Non-veg</li></a><br>
+          <a href="/veg"><li>veg</li></a>
+        </ul>
+
+
+
+
+       </a><br>
+     
+  </div>
+ </div>
+
+
+<style type="text/css">
+  .container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap:10px;
+    margin-top: 10px;
+    margin-left: 102px;
+    align-items: right;
+  }
+  .card{
+    margin: 10px;
+  }
+
+</style>
+      
+
+<div class="container">      
+  {% for n in pro %}
+   
+    <div>
+       <img src="/media/{{n.pic}}/"class="card-img-top" width="150" height="170" >
+     
+        <div class="card-body">
+            <h5 class="card-title">{{n.name}}</h5>
+            <h6 class= "card-title">&#8377;{{n.price}} &nbsp&nbsp(Half-Plate)</h6>
+            <button  class="btn btn-primary ">Quick View</button>
+            <form  action="/add-to-cart" class="d-inline">
+            <input type="hidden" name="prod_id" value="{{n.id}}" id="prod_id">
+                  <button  type="submit" class=" btn btn-primary">Add To Cart </button>
+                </form>
+                
+                
+        </div>
+       </div>
+             
+  {% endfor %}
+        {% endblock body %}
+      
+
+ 
+
+
+
+   
+   
+
+
+
+
+
+
+  
+    

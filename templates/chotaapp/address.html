@@ -1,0 +1,59 @@
+{% extends 'chotaapp/base.html' %}
+{% block title %} {% endblock title %}
+  
+
+{% block body %}
+<style> 
+.float-child.green{
+  width: 20%;
+  float: left;
+  padding: 20px;
+  border: 2px solid black;
+  margin-right: 20px;
+  height:200px;
+  margin-top: 10px;
+  background-color: rgb(201, 121, 183);
+  margin-left:0px;
+  
+    
+}
+
+.float-child.blue{
+  width: 40%;
+  float: right;
+  padding: 20px;
+  border: 2px solid black;
+  margin-right: 250px;
+  height:550px;
+  margin-top: 10px;
+  background-color: rgb(201, 121, 183);
+  margin-left: 50px;
+  
+    
+} 
+
+
+</style>
+<div class="float-container ">
+
+<div class="float-child green">
+  <a type="button"  class="btn " href="/profile">Profile</a><br>
+  <a type="button" href="/address" class="btn btn-primary ">Address</a><br>
+  <a type="button" href="/orders" class="btn">My Orders</a>
+</div>
+<div class="float-child blue">
+    
+   {% for ad in add %}
+   <h><strong>Shipping Address:{{forloop.counter}}</strong></h><br><hr>
+
+    <p>{{ad.name}}</p>
+  
+    <p>{{ad.address}}
+    ,{{ad.district}}</p>
+    
+    <p>{{ad.state}}</p>
+    <p>{{ad.pincode}}</p>
+    {% endfor %}<hr>
+  </div>
+</div>
+{% endblock body %}

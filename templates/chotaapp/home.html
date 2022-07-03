@@ -1,0 +1,52 @@
+{% extends 'chotaapp/base.html' %}
+{% block title %}Home page
+{% endblock title %}
+
+
+{% block body %}
+
+
+<link rel="stylesheet" href="/static/foodproducts/css_files/home.css">
+<div class="container">
+    <div class="jumbotron" align="center" >
+        <h1> <p style="color:white">Welcome  To  Food  Hub </p></h1>
+
+        <a class="btn btn-dark btn-lg" href="/veg" role="button">Veg</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+        <a class="btn btn-dark btn-lg" href="/nonveg"  role="button">Non-Veg</a>&nbsp;
+</div><br><hr>
+
+
+          <img src="/static/foodproducts/images_file/vegetable-skewer-3317060_960_720.webp">&nbsp&nbsp&nbsp&nbsp;
+          <img src="/static/foodproducts/images_file/salmon-518032_960_720.webp">&nbsp&nbsp&nbsp&nbsp;
+          <img src="/static/foodproducts/images_file/paneer-butter-masala-cheese-cottage-curry-served-with-rice-laccha-paratha_466689-73715.webp">&nbsp&nbsp&nbsp&nbsp;
+          <img src="/static/foodproducts/images_file/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.webp">&nbsp&nbsp&nbsp&nbsp;
+          &nbsp&nbsp&nbsp&nbsp;<hr>
+
+       
+    <center>    <div id="myslideshow"  class="carousel slide" data-ride="carousel" >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/static/foodproducts/images_file/status.png" class="d-block w-50" >
+                    
+              </div>
+              <div class="carousel-item">
+                <img src="/static/foodproducts/images_file/min or.png" class="d-block w-50" >
+              </div>
+              <div class="carousel-item">
+                <img src="/static/foodproducts/images_file/delivery.jpg" class="d-block w-50" >
+                <div class="carousel-caption d-none d-md-block">
+                <h5><p style="font-size: larger">Fastest Delivery</p></h5>
+                <p><p style="font-size: larger">Get your order within 15 min.</p></p>
+                </div>
+              </div>
+
+            </div>     
+          </div></center>  
+         
+
+       
+
+
+
+
+{% endblock body %}

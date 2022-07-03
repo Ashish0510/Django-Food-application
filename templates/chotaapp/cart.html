@@ -1,0 +1,95 @@
+{% extends 'chotaapp/base.html' %}
+{% block title %} cart  {% endblock title %}
+{% block body %}
+
+<style>
+	.row{
+		margin-top: 20px;
+		background-color: rgb(201, 121, 183);
+		height: 200px;
+		width: 85%;
+		margin-left: 100px;
+	}
+	.row1{
+		margin-top: 20px;
+		background-color: rgb(201, 121, 183);
+		height: 600px;
+		width: 85%;
+		margin-left: 100px;
+	}
+</style>
+	<div class="row" >
+		<div class="col-lg-12">
+								<div class="box-element" >
+									<a  class="btn btn-outline-dark" href="/"> Continue Shopping</a><hr>
+									<br>
+								
+									<table class="table">
+									<tr>
+								
+									<th><h5>Item Price <strong>&#8377;<span id="amount">{{amount}}</span></strong></h5></th>
+									<th><h5>Shipping Charges:<strong>&#8377;40</strong></h5></th>
+									<th><h5>Total:<strong>&#8377;<span id="totalamount">{{totalamount}}</span> </strong></h5></th>
+									
+									<th>
+									<a  style="float:right; margin:5px;" class="btn btn-success" href="/checkout">Checkout</a>
+								</th>
+							</tr>
+						</table>
+					</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row1" >
+		<div class="col-lg-12">
+			<div class="box-element" >
+			<table class="table">
+				<thead>
+					<th>Item</th>
+					<th>Category</th>
+					<th>Quantity</th>
+					<th> Price</th>
+					<th> Action</th>
+					
+
+
+
+
+				</thead>
+			{% for ma in carts %}
+			<tr>
+                
+					<td>{{ma.product.name}}</td>
+					<td>{{ma.product.category}}</td>
+					<td>
+						           
+					     <input type="button" value="-" class="button-minus minuscart" pid="{{ma.product.id}}" data-field="quantity">&nbsp&nbsp;
+					     <span id="quantity">{{ma.quantity}}</span>&nbsp&nbsp;
+						 <input type="button" value="+" class="button-plus pluscart"    pid="{{ma.product.id}}" data-field="quantity">
+						
+									
+					</td>
+					<td>&#8377;{{ma.product.price}}</td>
+					<td><button type="delete" pid ="{{ma.product.id}}"class="btn btn-danger remove-cart">Remove</button></td>
+					
+
+			</tr>
+
+
+
+
+
+				
+		    {% endfor %}
+			</table>
+					
+
+
+            
+
+
+			</div>  
+		</div>
+	</div>
+{% endblock body %}

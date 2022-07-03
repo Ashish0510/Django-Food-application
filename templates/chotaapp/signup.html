@@ -1,0 +1,36 @@
+{% extends 'chotaapp/base.html' %}
+{% block title%} signup  {% endblock title %}
+    
+           
+{% block body %}<br><br>
+<style>
+   .float-child.green{
+   width: 40%;
+   float: left;
+   padding: 20px;
+   border: 2px solid black;
+   margin-right: 20px;
+   height:400px;
+   margin-top: 10px;
+   background-color: rgb(201, 121, 183);
+   margin-left: 350px;
+   
+     
+} 
+</style>
+<div class="float-container ">
+
+   <div class="float-child green">
+   <form   action=""   method="POST"  novalidate >
+      {% csrf_token %}
+      
+      {% for n in form %}
+       {{n.label_tag}} {{n}} {{n.errors|striptags}} <br><br>
+         
+      {% endfor %}
+      <input type="submit" style="margin-left: 190px;" value="submit">
+   </form>
+   </div>
+</div>
+
+{% endblock body %}
